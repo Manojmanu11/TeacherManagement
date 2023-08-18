@@ -5,24 +5,19 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.Set;
 
 @Entity
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "course_db")
-
-public class Course {
+@NoArgsConstructor
+@Table(name = "student_db")
+public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
 
-    @OneToOne(mappedBy = "course")
-    private Teacher teacher;
-
-//    @OneToMany(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "fk_course_id",referencedColumnName = "id")
-//    private List<Book> books;
+    @ManyToMany(cascade = CascadeType.ALL)
+    private Set<Class> classSet;
 }

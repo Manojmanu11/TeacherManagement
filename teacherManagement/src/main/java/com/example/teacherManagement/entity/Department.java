@@ -6,23 +6,17 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.List;
-
-
+@Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "teacher_db")
-@Entity
-public class Teacher {
+@Table(name = "department_db")
+public class Department {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
     private String name;
-    private int age;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "fk_course_id")
-    private Course course;
-
-
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_department_id",referencedColumnName = "id")
+    private List<Course> courses;
 }
