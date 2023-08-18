@@ -1,10 +1,26 @@
 package com.example.teacherManagement.controller;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.example.teacherManagement.entity.Class;
+import com.example.teacherManagement.entity.Department;
+import com.example.teacherManagement.services.ClassService;
+import com.example.teacherManagement.services.DepartmentService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/class")
 public class ClassController {
+    @Autowired
+    private ClassService classService;
+    @PostMapping
+    public Class add(@RequestBody Class newclass){
+        return classService.add(newclass);
+    }
+    @GetMapping
+    public List<Class> getAll(){
+        return classService.get();
+    }
 
 }

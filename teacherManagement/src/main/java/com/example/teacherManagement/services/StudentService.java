@@ -1,6 +1,7 @@
 package com.example.teacherManagement.services;
 
 import com.example.teacherManagement.entity.Student;
+import com.example.teacherManagement.exceptions.UserExistException;
 import com.example.teacherManagement.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,6 +14,9 @@ public class StudentService {
     private StudentRepository studentRepository;
 
     public Student add(Student student){
+        if(!studentRepository.findByName(student.getName()).isEmpty()){
+            throw new UserExistException("username already exists");
+        }
       return   studentRepository.save(student);
 
     }
