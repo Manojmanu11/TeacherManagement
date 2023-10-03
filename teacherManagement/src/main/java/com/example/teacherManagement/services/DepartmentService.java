@@ -1,25 +1,10 @@
 package com.example.teacherManagement.services;
 
 import com.example.teacherManagement.entity.Department;
-import com.example.teacherManagement.entity.Student;
-import com.example.teacherManagement.repository.DepartmentRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
-
-public class DepartmentService {
-    @Autowired
-    private DepartmentRepository departmentRepository;
-
-    public Department add(Department department) {
-        return departmentRepository.save(department);
-
-    }
-
-    public List<Department> get() {
-        return departmentRepository.findAll();
-    }
+public interface DepartmentService {
+    Department add(Department department);
+    List<Department> get();
 }

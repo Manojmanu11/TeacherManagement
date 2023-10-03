@@ -1,7 +1,6 @@
 package com.example.teacherManagement.controller;
 
-import com.example.teacherManagement.entity.Course;
-import com.example.teacherManagement.entity.Teacher;
+import com.example.teacherManagement.entity.ClassTeacher;
 import com.example.teacherManagement.services.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,11 +13,11 @@ public class TeacherController {
     @Autowired
     private TeacherService teacherService;
     @PostMapping
-    public Teacher add(@RequestBody Teacher teacher){
+    public ClassTeacher add(@RequestBody ClassTeacher teacher){
         return teacherService.add(teacher);
     }
     @GetMapping
-    public List<Teacher> getAll(){
+    public List<ClassTeacher> getAll(){
         return teacherService.getAll();
     }
     @DeleteMapping
@@ -26,7 +25,7 @@ public class TeacherController {
         teacherService.delete(id);
     }
     @PutMapping
-    public Teacher update(@PathVariable Long id,@RequestBody Teacher teacher){
+    public ClassTeacher update(@PathVariable Long id, @RequestBody ClassTeacher teacher){
         return teacherService.update(id,teacher);
     }
 }

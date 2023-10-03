@@ -17,4 +17,12 @@ public class Class {
     private String cname;
 
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_classTeacher_id")
+    private ClassTeacher classTeacher;
+
+
+
+
+
 }

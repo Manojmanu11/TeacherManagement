@@ -5,7 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
 
 
 @Data
@@ -13,16 +12,14 @@ import java.util.List;
 @AllArgsConstructor
 @Table(name = "teacher_db")
 @Entity
-public class Teacher {
+public class ClassTeacher {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
     private int age;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "fk_course_id")
-    private Course course;
-
+    @OneToOne(mappedBy = "classTeacher")
+    private Class aClass;
 
 }

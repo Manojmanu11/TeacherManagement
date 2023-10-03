@@ -1,9 +1,7 @@
 package com.example.teacherManagement.controller;
 
 import com.example.teacherManagement.entity.Class;
-import com.example.teacherManagement.entity.Department;
 import com.example.teacherManagement.services.ClassService;
-import com.example.teacherManagement.services.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
